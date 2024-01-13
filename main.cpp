@@ -5,7 +5,7 @@ int main() {
 
     // Za³aduj obraz t³a o nazwie "tlo.png"
     sf::Texture tloTexture;
-    if (!tloTexture.loadFromFile("tlo.png")) {
+    if (!tloTexture.loadFromFile("image.png")) {
         // W przypadku niepowodzenia ³adowania obrazu
         return 1;
     }
@@ -24,7 +24,7 @@ int main() {
     xwingSprite.setOrigin(xwingSprite.getLocalBounds().width / 2.0f, xwingSprite.getLocalBounds().height / 2.0f);
     xwingSprite.setPosition(window.getSize().x / 2.0f, window.getSize().y / 2.0f);
 
-    const float xwingSpeed = 200.0f; // Prêdkoœæ poruszania siê X-Winga
+    const float xwingSpeed = 300.0f; // Prêdkoœæ poruszania siê X-Winga
 
     // Definicja k¹tów obrotu
     const float ROTATION_RIGHT = 90.0f;
@@ -42,6 +42,10 @@ int main() {
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
+                window.close();
+            }
+            else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Delete) {
+                // Zamknij program po naciœniêciu klawisza Delete
                 window.close();
             }
         }
