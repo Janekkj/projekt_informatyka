@@ -463,8 +463,16 @@ int main() {
             window.draw(gwiazdaSprite);
         }
 
+        if (showButtons) {
+            window.draw(startHardButton);
+            window.draw(startHardButtonText);
+        }
+        if (koniecGry) {
+            window.draw(koniecGryText);
+        }
+        if (isPaused) {
+            window.draw(pauseText);
     }
-
         window.display();
     }
     return 0;
